@@ -650,3 +650,5 @@ export function getRandomColor() {
 
   return parseInt(color.replace("#", ""), 16);
 }
+
+export default botConfig;
