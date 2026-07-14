@@ -63,17 +63,15 @@ export const botConfig = {
     defaultQuestions: [
       { question: "What is your name?", required: true },
       { question: "How old are you?", required: true },
-      { question: "What timezone are you in??", required: true },
+      { question: "What timezone are you in?", required: true },
       { question: "Why do you want to join?", required: true },
     ],
-
-    // Embed colors by application status.
-    statusColors: {
-      pending: "#8B5CF6",
-      approved: "#22C55E",
-      denied: "#EF4444",
-    },
-
+// Embed colors by application status.
+statusColors: {
+  pending: "#8B5CF6",
+  approved: "#39FF88",
+  denied: "#FF3B5C",
+},
     // How long users must wait before submitting another application (hours).
     applicationCooldown: 24,
 
@@ -643,9 +641,12 @@ export function getColor(path, fallback = "#99AAB5") {
 
 export function getRandomColor() {
   const colors = Object.values(botConfig.embeds.colors).flatMap((color) =>
-    typeof color === "string" ? color : Object.values(color),
+    typeof color === "string"
+      ? color
+      : Object.values(color).filter((v) => typeof v === "string"),
   );
-  return colors[Math.floor(Math.random() * colors.length)];
-}
 
-export default botConfig;
+  const color = colors[Math.floor(Math.random() * colors.length)];
+
+  return parseInt(color.replace("#", ""), 16);
+}
