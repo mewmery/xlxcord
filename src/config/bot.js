@@ -11,7 +11,7 @@ export const botConfig = {
   // - "invisible" = appears offline
   presence: {
     // Current online state shown on Discord.
-    status: "online",
+    status: "dnd",
 
     // Activity lines shown under the bot name.
     // `type` number mapping from Discord:
@@ -24,7 +24,7 @@ export const botConfig = {
     activities: [
       {
         name: "Custom Status", // required by Discord API, not shown in the client
-        state: "stalking",     // this is what people actually see
+        state: "dont ping staff | dsc.gg/xalix",     // this is what people actually see
         type: 4,               // Custom
       },
     ],
@@ -63,14 +63,15 @@ export const botConfig = {
     defaultQuestions: [
       { question: "What is your name?", required: true },
       { question: "How old are you?", required: true },
+      { question: "What timezone are you in??", required: true },
       { question: "Why do you want to join?", required: true },
     ],
 
     // Embed colors by application status.
     statusColors: {
-      pending: "#FFA500",
-      approved: "#00FF00",
-      denied: "#FF0000",
+      pending: "#8B5CF6",
+      approved: "#22C55E",
+      denied: "#EF4444",
     },
 
     // How long users must wait before submitting another application (hours).
@@ -86,75 +87,75 @@ export const botConfig = {
     managerRoles: [], // Will be populated from environment or database
   },
 
-  // =========================
-  // EMBED COLORS & BRANDING
-  // =========================
-  // IMPORTANT: This is the SINGLE SOURCE OF TRUTH for all bot colors
-  embeds: {
-    colors: {
-      // Main brand colors.
-      primary: "#336699",
-      secondary: "#2F3136",
+// =========================
+// EMBED COLORS & BRANDING
+// =========================
+// IMPORTANT: This is the SINGLE SOURCE OF TRUTH for all bot colors
+embeds: {
+  colors: {
+    // Main brand colors.
+    primary: "#8B5CF6",
+    secondary: "#4F46E5",
 
-      // Standard status colors for success/error/warning/info messages.
-      success: "#57F287",
-      error: "#ED4245",
-      warning: "#FEE75C",
-      info: "#3498DB",
+    // Standard status colors for success/error/warning/info messages.
+    success: "#39FF88",
+    error: "#FF3B5C",
+    warning: "#FFD43B",
+    info: "#8B5CF6",
 
-      // Neutral utility colors.
-      light: "#FFFFFF",
-      dark: "#202225",
-      gray: "#99AAB5",
+    // Neutral utility colors.
+    light: "#FFFFFF",
+    dark: "#0B0B14",
+    gray: "#8B8FA3",
 
-      // Discord-style palette shortcuts.
-      blurple: "#5865F2",
-      green: "#57F287",
-      yellow: "#FEE75C",
-      fuchsia: "#EB459E",
-      red: "#ED4245",
-      black: "#000000",
+    // Xalix-style palette shortcuts.
+    blurple: "#8B5CF6",
+    green: "#39FF88",
+    yellow: "#FFD43B",
+    fuchsia: "#D946EF",
+    red: "#FF3B5C",
+    black: "#000000",
 
-      // Feature-specific colors.
-      giveaway: {
-        active: "#57F287",
-        ended: "#ED4245",
-      },
-      ticket: {
-        open: "#57F287",
-        claimed: "#FAA61A",
-        closed: "#ED4245",
-        pending: "#99AAB5",
-      },
-      economy: "#F1C40F",
-      birthday: "#E91E63",
-      moderation: "#9B59B6",
-
-      // Ticket priority color mapping.
-      priority: {
-        none: "#95A5A6",
-        low: "#3498db",
-        medium: "#2ecc71",
-        high: "#f1c40f",
-        urgent: "#e74c3c",
-      },
+    // Feature-specific colors.
+    giveaway: {
+      active: "#39FF88",
+      ended: "#FF3B5C",
     },
-    footer: {
-      // Default footer text used in bot embeds.
-      text: "Titan Bot",
-      // Footer icon URL (null = no icon).
-      icon: null,
+
+    ticket: {
+      open: "#39FF88",
+      claimed: "#FFD43B",
+      closed: "#FF3B5C",
+      pending: "#8B8FA3",
     },
-    // Default thumbnail URL for embeds (null = no thumbnail).
-    thumbnail: null,
-    author: {
-      // Optional default embed author block.
-      name: null,
-      icon: null,
-      url: null,
+
+    economy: "#FACC15",
+    birthday: "#D946EF",
+    moderation: "#8B5CF6",
+
+    // Ticket priority color mapping.
+    priority: {
+      none: "#8B8FA3",
+      low: "#4F46E5",
+      medium: "#39FF88",
+      high: "#FFD43B",
+      urgent: "#FF3B5C",
     },
   },
 
+  footer: {
+    text: "Xalix Bot",
+    icon: null,
+  },
+
+  thumbnail: null,
+
+  author: {
+    name: null,
+    icon: null,
+    url: null,
+  },
+},
   // =========================
   // ECONOMY SETTINGS
   // =========================
@@ -219,34 +220,34 @@ export const botConfig = {
     // Role IDs allowed to manage/support tickets.
     supportRoles: [],
 
-    // Priority options users/staff can assign.
-    priorities: {
-      none: {
-        emoji: "⚪",
-        color: "#95A5A6",
-        label: "None",
-      },
-      low: {
-        emoji: "🟢",
-        color: "#2ECC71",
-        label: "Low",
-      },
-      medium: {
-        emoji: "🟡",
-        color: "#F1C40F",
-        label: "Medium",
-      },
-      high: {
-        emoji: "🔴",
-        color: "#E74C3C",
-        label: "High",
-      },
-      urgent: {
-        emoji: "🚨",
-        color: "#E91E63",
-        label: "Urgent",
-      },
-    },
+   // Priority options users/staff can assign.
+priorities: {
+  none: {
+    emoji: "⚪",
+    color: "#8B8FA3",
+    label: "None",
+  },
+  low: {
+    emoji: "🟢",
+    color: "#39FF88",
+    label: "Low",
+  },
+  medium: {
+    emoji: "🟡",
+    color: "#FFD43B",
+    label: "Medium",
+  },
+  high: {
+    emoji: "🔴",
+    color: "#FF3B5C",
+    label: "High",
+  },
+  urgent: {
+    emoji: "🚨",
+    color: "#D946EF",
+    label: "Urgent",
+  },
+},
 
     // Default priority for new tickets.
     defaultPriority: "none",
@@ -383,53 +384,52 @@ export const botConfig = {
     defaultGoodbyeChannel: null,
   },
 
-  // =========================
-  // COUNTER CHANNELS
-  // =========================
-  counters: {
-    defaults: {
-      // Default naming/description templates for counter entries.
-      name: "{name} Counter",
-      description: "Server {name} counter",
-      // Channel type used for counters (typically "voice").
-      type: "voice",
-      // Channel name format. `{count}` is replaced automatically.
-      channelName: "{name}-{count}",
+ // =========================
+// COUNTER CHANNELS
+// =========================
+counters: {
+  defaults: {
+    // Default naming/description templates for counter entries.
+    name: "{name} Counter",
+    description: "Xalix {name} counter",
+    // Channel type used for counters (typically "voice").
+    type: "voice",
+    // Channel name format. `{count}` is replaced automatically.
+    channelName: "{name}-{count}",
+  },
+  permissions: {
+    // Default denied permissions for the counter channel.
+    deny: ["VIEW_CHANNEL"],
+    // Default allowed permissions for the counter channel.
+    allow: ["VIEW_CHANNEL", "CONNECT", "SPEAK"],
+  },
+  messages: {
+    // Default response messages for counter actions.
+    created: "✅ Created counter **{name}**",
+    deleted: "🗑️ Deleted counter **{name}**",
+    updated: "🔄 Updated counter **{name}**",
+  },
+  types: {
+    // Built-in counter types and how each count is calculated.
+    members: {
+      name: "👥 Members",
+      description: "Total members in the server",
+      getCount: (guild) => guild.memberCount.toString(),
     },
-    permissions: {
-      // Default denied permissions for the counter channel.
-      deny: ["VIEW_CHANNEL"],
-      // Default allowed permissions for the counter channel.
-      allow: ["VIEW_CHANNEL", "CONNECT", "SPEAK"],
+    bots: {
+      name: "🤖 Bots",
+      description: "Total bot accounts in the server",
+      getCount: (guild) =>
+        guild.members.cache.filter((m) => m.user.bot).size.toString(),
     },
-    messages: {
-      // Default response messages for counter actions.
-      created: "✅ Created counter **{name}**",
-      deleted: "🗑️ Deleted counter **{name}**",
-      updated: "🔄 Updated counter **{name}**",
-    },
-    types: {
-      // Built-in counter types and how each count is calculated.
-      members: {
-        name: "👥 Members",
-        description: "Total members in the server",
-        getCount: (guild) => guild.memberCount.toString(),
-      },
-      bots: {
-        name: "🤖 Bots",
-        description: "Total bot accounts in the server",
-        getCount: (guild) =>
-          guild.members.cache.filter((m) => m.user.bot).size.toString(),
-      },
-      members_only: {
-        name: "👤 Humans",
-        description: "Total human members (non-bots)",
-        getCount: (guild) =>
-          guild.members.cache.filter((m) => !m.user.bot).size.toString(),
-      },
+    members_only: {
+      name: "👤 Humans",
+      description: "Total human members (non-bots)",
+      getCount: (guild) =>
+        guild.members.cache.filter((m) => !m.user.bot).size.toString(),
     },
   },
-
+},
   // =========================
   // GENERIC BOT MESSAGES
   // =========================
