@@ -24,7 +24,7 @@ export const botConfig = {
     activities: [
       {
         name: "Custom Status", // required by Discord API, not shown in the client
-        state: "dont ping staff | dsc.gg/xalix",     // this is what people actually see
+ state: "🛡️ dont ping staff | dsc.gg/xalix",   // this is what people actually see
         type: 4,               // Custom
       },
     ],
@@ -164,7 +164,7 @@ embeds: {
       // Plural display name.
       namePlural: "coins",
       // Currency symbol shown in balances.
-      symbol: "$",
+symbol: "🪙"
     },
 
     // Starting balance for new users.
@@ -642,7 +642,7 @@ export function getColor(path, fallback = "#99AAB5") {
 export function getRandomColor() {
   const colors = Object.values(botConfig.embeds.colors).flatMap((color) =>
     typeof color === "string"
-      ? color
+      ? [color]
       : Object.values(color).filter((v) => typeof v === "string"),
   );
 
