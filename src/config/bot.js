@@ -434,7 +434,7 @@ counters: {
   messages: {
     noPermission: "You do not have permission to use this command.",
     cooldownActive: "Please wait {time} before using this command again.",
-    errorOccurred: "An error occurred while executing this command.",
+    errorOccurred: "An unexpected error has occurred while trying to executing this command.",
     missingPermissions:
       "I am missing required permissions to perform this action.",
     commandDisabled: "This command has been disabled.",
@@ -471,7 +471,7 @@ counters: {
     utility: true,
     community: true,
     fun: true,
-    music: true,
+    music: false,
   },
 };
 
